@@ -1,0 +1,15 @@
+# Netlify Configuration — Miss Dawn Legacy Africa
+# This file controls how Netlify builds and serves the website.
+
+[build]
+  # The folder Netlify publishes — the root of the project
+  publish = "."
+
+# Security headers applied to every page
+[[headers]]
+  for = "/*"
+  [headers.values]
+    X-Frame-Options = "DENY"
+    X-Content-Type-Options = "nosniff"
+    Referrer-Policy = "strict-origin-when-cross-origin"
+    Permissions-Policy = "geolocation=(), microphone=(), camera=()"

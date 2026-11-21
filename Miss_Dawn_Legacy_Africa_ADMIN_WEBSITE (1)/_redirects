@@ -1,0 +1,16 @@
+# Netlify Redirects — Miss Dawn Legacy Africa
+# This file tells Netlify how to handle URL routing.
+
+# Serve index.html for the root URL
+/           /index.html   200
+
+# Ensure clean URLs work (no .html extension needed in browser)
+/dashboard  /dashboard.html  200
+/about      /about.html      200
+/divisions  /divisions.html  200
+/journey    /journey.html    200
+/crown      /crown.html      200
+/news       /news.html       200
+/contact    /contact.html    200
+/apply      /apply.html      200
+/admin      /admin.html      200

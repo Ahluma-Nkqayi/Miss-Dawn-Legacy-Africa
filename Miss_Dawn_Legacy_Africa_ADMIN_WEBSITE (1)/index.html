@@ -1,0 +1,185 @@
+﻿<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width,initial-scale=1">
+  <title>Miss Dawn Legacy Africa</title>
+  <link rel="stylesheet" href="css/style.css">
+  <style>
+    /* ── Hero section ── */
+    .home-hero {
+      position: relative;
+      width: 100%;
+      height: 100vh;
+      min-height: 560px;
+      overflow: hidden;
+      display: flex;
+      align-items: flex-end;
+      justify-content: center;
+    }
+
+    /* Background photo */
+    .home-hero .bg {
+      position: absolute;
+      inset: 0;
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      object-position: center top;
+    }
+
+    /* Subtle dark gradient at bottom so text/logo reads well */
+    .home-hero::after {
+      content: '';
+      position: absolute;
+      inset: 0;
+      background: linear-gradient(
+        to bottom,
+        rgba(6,26,67,0.15) 0%,
+        rgba(6,26,67,0.05) 40%,
+        rgba(6,26,67,0.55) 100%
+      );
+    }
+
+    /* Logo overlay — centered, upper-left area of the image */
+    .home-hero .site-logo-img {
+      position: absolute;
+      top: 80px;          /* below the fixed nav */
+      left: 50%;
+      transform: translateX(-50%);
+      width: clamp(160px, 22vw, 280px);
+      /* drop-shadow to help it lift off the background */
+      filter: drop-shadow(0 4px 18px rgba(6,26,67,0.55))
+              drop-shadow(0 1px 4px rgba(0,0,0,0.35));
+      z-index: 2;
+      pointer-events: none;
+    }
+
+    /* Bottom caption bar */
+    .home-hero .caption {
+      position: relative;
+      z-index: 2;
+      text-align: center;
+      padding: 32px 6% 40px;
+      width: 100%;
+    }
+    .home-hero .caption h1 {
+      font-family: Georgia, serif;
+      font-weight: 500;
+      font-size: clamp(28px, 4.5vw, 56px);
+      color: #fff;
+      margin: 0 0 10px;
+      text-shadow: 0 2px 12px rgba(6,26,67,0.7);
+      letter-spacing: 1px;
+    }
+    .home-hero .caption p {
+      color: #f9dce8;
+      font-size: clamp(13px, 1.8vw, 17px);
+      margin: 0 0 22px;
+      text-shadow: 0 1px 6px rgba(6,26,67,0.6);
+      letter-spacing: 2px;
+      text-transform: uppercase;
+    }
+    .home-hero .caption .cta-row {
+      display: flex;
+      gap: 12px;
+      justify-content: center;
+      flex-wrap: wrap;
+    }
+    .home-hero .caption .cta-row a {
+      padding: 13px 28px;
+      border-radius: 4px;
+      font-weight: bold;
+      font-size: 13px;
+      text-decoration: none;
+      letter-spacing: 1px;
+      transition: opacity .2s, transform .15s;
+    }
+    .home-hero .caption .cta-row a:hover {
+      opacity: .88;
+      transform: translateY(-2px);
+    }
+    .home-hero .caption .cta-pink {
+      background: var(--pink);
+      color: #fff;
+    }
+    .home-hero .caption .cta-outline {
+      background: transparent;
+      border: 2px solid rgba(255,255,255,0.8);
+      color: #fff;
+    }
+
+
+  </style>
+</head>
+<body>
+
+<header class="nav">
+  <a href="index.html" class="logo">
+    <img src="images/logo.png" alt="Miss Dawn Legacy Africa Logo" class="nav-logo-img">
+    <span class="nav-logo-text">MISS DAWN <small>LEGACY AFRICA</small></span>
+  </a>
+  <div class="links">
+    <a href="index.html">HOME</a>
+    <a href="dashboard.html">DASHBOARD</a>
+    <a href="about.html">ABOUT</a>
+    <a href="divisions.html">DIVISIONS</a>
+    <a href="journey.html">JOURNEY</a>
+    <a href="crown.html">THE CROWN</a>
+    <a href="news.html">NEWS</a>
+    <a href="contact.html">CONTACT</a>
+    <a href="apply.html" class="apply">APPLY NOW</a>
+  </div>
+  <button class="hamburger" id="menuToggle" aria-label="Toggle menu">&#9776;</button>
+</header>
+
+<div class="mobileMenu" id="mobileMenu">
+  <a href="index.html">HOME</a>
+  <a href="dashboard.html">DASHBOARD</a>
+  <a href="about.html">ABOUT</a>
+  <a href="divisions.html">DIVISIONS</a>
+  <a href="journey.html">JOURNEY</a>
+  <a href="crown.html">THE CROWN</a>
+  <a href="news.html">NEWS</a>
+  <a href="contact.html">CONTACT</a>
+  <a href="apply.html" class="apply">APPLY NOW</a>
+</div>
+
+<!-- ── HOME HERO ── -->
+<section class="home-hero">
+
+  <!-- Background photo — woman in white gown, Cape Town sunset -->
+  <img
+    class="bg"
+    src="images/hero.png"
+    alt="Miss Dawn Legacy Africa"
+    id="homeImg"
+  >
+
+  <!-- Caption / CTA at the bottom -->
+  <div class="caption">
+    <h1>Miss Dawn Legacy Africa</h1>
+    <p>Where Purpose Meets The Crown</p>
+    <div class="cta-row">
+      <a href="apply.html"
+         class="cta-pink"
+         data-reg-btn
+         data-reg-dest="apply.html"
+         data-reg-label="APPLY NOW"
+         data-reg-closed-label="ENTRIES OPENING SOON">APPLY NOW</a>
+      <a href="dashboard.html" class="cta-outline">EXPLORE THE PAGEANT</a>
+    </div>
+  </div>
+
+</section>
+
+<footer>
+  MISS DAWN <span>LEGACY AFRICA</span><br>
+  Where Purpose Meets The Crown.<br>
+  We are the dawn. We are the future. We are the legacy.
+</footer>
+
+<script src="js/main.js"></script>
+<script src="js/registration.js"></script>
+</body>
+</html>

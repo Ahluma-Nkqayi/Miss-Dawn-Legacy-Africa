@@ -1,0 +1,305 @@
+﻿<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width,initial-scale=1">
+  <title>Apply â€” Miss Dawn Legacy Africa</title>
+  <link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+
+<header class="nav">
+  <a href="index.html" class="logo">
+    <img src="images/logo.png" alt="Miss Dawn Legacy Africa Logo" class="nav-logo-img">
+    <span class="nav-logo-text">MISS DAWN <small>LEGACY AFRICA</small></span>
+  </a>
+  <div class="links">
+    <a href="index.html">HOME</a>
+    <a href="dashboard.html">DASHBOARD</a>
+    <a href="about.html">ABOUT</a>
+    <a href="divisions.html">DIVISIONS</a>
+    <a href="journey.html">JOURNEY</a>
+    <a href="crown.html">THE CROWN</a>
+    <a href="news.html">NEWS</a>
+    <a href="contact.html">CONTACT</a>
+    <a href="apply.html" class="apply">APPLY NOW</a>
+  </div>
+  <button class="hamburger" id="menuToggle" aria-label="Toggle menu">&#9776;</button>
+</header>
+<div class="mobileMenu" id="mobileMenu">
+  <a href="index.html">HOME</a>
+  <a href="dashboard.html">DASHBOARD</a>
+  <a href="about.html">ABOUT</a>
+  <a href="divisions.html">DIVISIONS</a>
+  <a href="journey.html">JOURNEY</a>
+  <a href="crown.html">THE CROWN</a>
+  <a href="news.html">NEWS</a>
+  <a href="contact.html">CONTACT</a>
+  <a href="apply.html" class="apply">APPLY NOW</a>
+</div>
+
+<div class="page">
+
+  <div class="applyHero">
+    <div class="eyebrow">Join The Dawn</div>
+    <h1>Application Form</h1>
+    <p>Read the eligibility requirements carefully before completing the form. All fields are required.</p>
+  </div>
+
+  <!-- â”€â”€ ELIGIBILITY REQUIREMENTS â”€â”€ -->
+  <div class="eligibilitySection">
+    <div class="eligibilityBox">
+      <h2>&#128081; Eligibility Requirements</h2>
+      <p class="subheading">Miss Dawn Legacy Africa &mdash; All Divisions</p>
+      <ol>
+        <li><strong>Age:</strong> Must meet the age requirement for your chosen division.</li>
+        <li><strong>Marital status:</strong> Must never have been married.</li>
+        <li><strong>Parenthood:</strong> Must never have given birth or been pregnant.</li>
+        <li><strong>Tattoos:</strong> Must have no visible tattoos.</li>
+        <li><strong>Piercings:</strong> No visible facial piercings, apart from conventional ear piercings.</li>
+        <li><strong>Appearance:</strong> Must maintain a neat, well-groomed and presentable appearance at all times.</li>
+        <li><strong>Representation:</strong> Must be willing to represent the values, image and reputation of Miss Dawn Legacy Africa.</li>
+        <li><strong>Criminal record:</strong> Must have no criminal convictions or ongoing criminal proceedings involving serious offences.</li>
+        <li><strong>Availability:</strong> Must be available for all compulsory pageant activities and official appearances.</li>
+        <li><strong>Honesty:</strong> Must provide truthful and accurate information during registration. Any material misrepresentation may result in disqualification.</li>
+      </ol>
+      <div class="eligibilityConfirm">
+        <input type="checkbox" id="eligibilityCheck">
+        <label for="eligibilityCheck">
+          I have read and confirm that I meet all of the eligibility requirements listed above. I understand that providing false information may result in my disqualification.
+        </label>
+      </div>
+    </div>
+  </div>
+
+  <!-- REGISTRATION CLOSED NOTICE (shown by registration.js when REGISTRATION_OPEN = false) -->
+  <div id="regClosedNotice"></div>
+
+  <!-- APPLICATION FORM (hidden by registration.js when REGISTRATION_OPEN = false) -->
+  <div id="applyFormWrapper">
+  <!-- â”€â”€ APPLICATION FORM â”€â”€ -->
+  <div class="applyForm">
+
+    <div id="applySuccess" class="successBanner">
+      &#10003; Your application has been submitted successfully! We will be in touch soon.
+    </div>
+
+    <div id="applyError" style="display:none;background:#fef2f2;border:1px solid #fca5a5;border-radius:10px;padding:20px;text-align:center;color:#b91c1c;font-weight:700;font-size:15px;margin-bottom:20px">
+      &#9888; Something went wrong. Please check your connection and try again. If the problem continues, email us directly at missdawnlegacyafrica@gmail.com
+    </div>
+
+    <!--
+      Formspree handles email delivery.
+      HOW TO ACTIVATE:
+        1. Go to https://formspree.io and sign up (free).
+        2. Create a new form and set the email to missdawnlegacyafrica@gmail.com
+        3. Copy your unique form ID (looks like: xpzgkwqr)
+        4. Replace YOUR_FORMSPREE_ID below with that ID.
+      Until activated, the form will show a success message locally but not send emails.
+    -->
+    <form
+      id="applicationForm"
+      onsubmit="handleApplySubmit(event)"
+    >
+      <!-- Hidden field so Formspree routes reply-to correctly -->
+      <input type="hidden" name="_replyto" id="replyToField">
+      <input type="hidden" name="_subject" value="New Miss Dawn Legacy Africa Application">
+
+      <!-- Personal Details -->
+      <div class="formSection">
+        <h3>Personal Details</h3>
+
+        <div class="fRow">
+          <div class="fField">
+            <label for="appName">First Name</label>
+            <input type="text" id="appName" name="name" placeholder="Your first name" required>
+          </div>
+          <div class="fField">
+            <label for="appSurname">Surname</label>
+            <input type="text" id="appSurname" name="surname" placeholder="Your surname" required>
+          </div>
+        </div>
+
+        <div class="fField" style="margin-bottom:16px">
+          <label for="appEmail">Email Address</label>
+          <input type="email" id="appEmail" name="email" placeholder="your@email.com"
+            required oninput="document.getElementById('replyToField').value=this.value">
+        </div>
+
+        <div class="fField" style="margin-bottom:16px">
+          <label for="appPhone">Phone Number</label>
+          <input type="tel" id="appPhone" name="phone" placeholder="+27 000 000 0000" required>
+        </div>
+
+        <div class="fField" style="margin-bottom:16px">
+          <label for="appDivision">Division</label>
+          <select id="appDivision" name="division" required>
+            <option value="">â€” Select your division â€”</option>
+            <option value="Little Miss Dawn Legacy Africa (Ages 10-14)">Little Miss Dawn Legacy Africa (Ages 10&ndash;14)</option>
+            <option value="Teen Miss Dawn Legacy Africa (Ages 15-19)">Teen Miss Dawn Legacy Africa (Ages 15&ndash;19)</option>
+            <option value="Miss Dawn Legacy Africa (Ages 20-25)">Miss Dawn Legacy Africa (Ages 20&ndash;25)</option>
+          </select>
+        </div>
+
+        <!-- Date of Birth -->
+        <div class="fField">
+          <label>Date of Birth</label>
+          <div class="dobRow" style="margin-top:6px">
+            <div class="fField">
+              <select id="appDobDay" name="dob_day" required>
+                <option value="">Day</option>
+                <option>1</option><option>2</option><option>3</option><option>4</option>
+                <option>5</option><option>6</option><option>7</option><option>8</option>
+                <option>9</option><option>10</option><option>11</option><option>12</option>
+                <option>13</option><option>14</option><option>15</option><option>16</option>
+                <option>17</option><option>18</option><option>19</option><option>20</option>
+                <option>21</option><option>22</option><option>23</option><option>24</option>
+                <option>25</option><option>26</option><option>27</option><option>28</option>
+                <option>29</option><option>30</option><option>31</option>
+              </select>
+            </div>
+            <div class="fField">
+              <select id="appDobMonth" name="dob_month" required>
+                <option value="">Month</option>
+                <option>January</option><option>February</option><option>March</option>
+                <option>April</option><option>May</option><option>June</option>
+                <option>July</option><option>August</option><option>September</option>
+                <option>October</option><option>November</option><option>December</option>
+              </select>
+            </div>
+            <div class="fField">
+              <select id="appDobYear" name="dob_year" required>
+                <option value="">Year</option>
+                <option>2016</option><option>2015</option><option>2014</option>
+                <option>2013</option><option>2012</option><option>2011</option>
+                <option>2010</option><option>2009</option><option>2008</option>
+                <option>2007</option><option>2006</option><option>2005</option>
+                <option>2004</option><option>2003</option><option>2002</option>
+                <option>2001</option><option>2000</option><option>1999</option>
+              </select>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- Photo Uploads -->
+      <div class="formSection">
+        <h3>Photo Uploads</h3>
+        <p style="font-size:13px;color:var(--muted);margin:-6px 0 18px">
+          Please upload two photos as described below. Read the requirements carefully before submitting.
+        </p>
+
+        <div class="photoGrid">
+
+          <!-- Half Body Shot -->
+          <div class="photoBox" onclick="document.getElementById('halfShot').click()">
+            <input type="file" id="halfShot" name="half_shot" accept="image/*" required
+              onchange="previewPhoto(this,'halfPreview')">
+            <div class="icon">&#128247;</div>
+            <div class="label">Half Body Shot</div>
+            <p style="font-size:12px;color:var(--muted);margin:4px 0 0">Click to upload</p>
+            <div class="note">
+              <strong>&#9888; Important:</strong><br>
+              &bull; Natural photo only &mdash; no filters<br>
+              &bull; No selfies<br>
+              &bull; No editing or retouching<br>
+              &bull; Clear, well-lit background<br>
+              &bull; Shows head to waist
+            </div>
+            <img id="halfPreview" class="photoPreview" alt="Half shot preview">
+          </div>
+
+          <!-- Full Body Shot -->
+          <div class="photoBox" onclick="document.getElementById('fullBody').click()">
+            <input type="file" id="fullBody" name="full_body" accept="image/*" required
+              onchange="previewPhoto(this,'fullPreview')">
+            <div class="icon">&#128100;</div>
+            <div class="label">Full Body Shot</div>
+            <p style="font-size:12px;color:var(--muted);margin:4px 0 0">Click to upload</p>
+            <div class="note">
+              <strong>&#9888; Important:</strong><br>
+              &bull; Natural photo only &mdash; no filters<br>
+              &bull; No selfies<br>
+              &bull; No editing or retouching<br>
+              &bull; Full body visible (head to toe)<br>
+              &bull; Stand upright, plain background
+            </div>
+            <img id="fullPreview" class="photoPreview" alt="Full body preview">
+          </div>
+
+        </div>
+      </div>
+
+      <button type="submit" class="submitBtn">SUBMIT APPLICATION &rarr;</button>
+    </form>
+
+  </div>
+  </div><!-- /applyFormWrapper -->
+</div>
+
+<footer>
+  MISS DAWN <span>LEGACY AFRICA</span><br>
+  Where Purpose Meets The Crown.<br>
+  We are the dawn. We are the future. We are the legacy.
+</footer>
+
+<script src="js/main.js"></script>
+<script>
+  function handleApplySubmit(e) {
+    e.preventDefault(); // Always prevent native navigation
+
+    // 1. Eligibility gate
+    if (!document.getElementById('eligibilityCheck').checked) {
+      alert('Please confirm that you meet all eligibility requirements before submitting.');
+      return;
+    }
+
+    const form    = document.getElementById('applicationForm');
+    const btn     = form.querySelector('button[type="submit"]');
+    const success = document.getElementById('applySuccess');
+    const error   = document.getElementById('applyError');
+
+    // 2. Reset banners
+    success.style.display = 'none';
+    error.style.display   = 'none';
+
+    // 3. Disable button to prevent duplicate submissions
+    btn.disabled    = true;
+    btn.textContent = 'SUBMITTING…';
+
+    // 4. Build FormData — captures all fields including both photo files
+    const formData = new FormData(form);
+
+    // 5. Send to Formspree via fetch()
+    fetch('https://formspree.io/f/mnpnljgd', {
+      method:  'POST',
+      body:    formData,
+      headers: { 'Accept': 'application/json' }
+    })
+    .then(function(response) {
+      if (response.ok) {
+        // 6. Success — show banner, hide form
+        success.style.display = 'block';
+        form.style.display    = 'none';
+        window.scrollTo({ top: 0, behavior: 'smooth' });
+      } else {
+        // 7. Formspree returned an error status
+        return response.json().then(function(data) {
+          throw new Error(data.error || 'Submission failed (status ' + response.status + ')');
+        });
+      }
+    })
+    .catch(function(err) {
+      // 8. Network error or Formspree error — show error message, re-enable button
+      console.error('Formspree error:', err);
+      error.style.display = 'block';
+      error.scrollIntoView({ behavior: 'smooth', block: 'center' });
+      btn.disabled    = false;
+      btn.textContent = 'SUBMIT APPLICATION →';
+    });
+  }
+</script>
+<script src="js/registration.js"></script>
+</body>
+</html>
+

@@ -1,0 +1,160 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width,initial-scale=1">
+  <title>Admin — Miss Dawn Legacy Africa</title>
+  <link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+
+<!-- Login gate — shown until correct PIN is entered -->
+<div id="loginGate" class="modal" style="display:flex">
+  <div class="modalBox">
+    <h2>Website Admin</h2>
+    <p>Enter the admin PIN to open the dashboard.</p>
+    <input id="pin" type="password" placeholder="PIN" style="margin-bottom:12px">
+    <button class="btn pink" onclick="loginAdmin()" style="width:100%">ENTER DASHBOARD</button>
+    <p style="font-size:11px;color:#667085;margin-top:10px">Demo PIN: <b>2580</b>. This is not production authentication.</p>
+    <p style="margin-top:12px;font-size:13px"><a href="index.html">&larr; Back to website</a></p>
+  </div>
+</div>
+
+<!-- Admin dashboard — hidden until logged in -->
+<div id="adminWrap" class="adminWrap" style="display:none">
+
+  <div class="adminTop">
+    <h1>Miss Dawn Legacy Africa &mdash; Admin</h1>
+    <div class="row">
+      <a href="index.html" class="btn outline">VIEW WEBSITE</a>
+      <button class="btn pink" onclick="logoutAdmin()">LOG OUT</button>
+    </div>
+  </div>
+
+  <div class="adminBody">
+    <aside class="side">
+      <button class="active" data-panel="overview">Overview</button>
+      <button data-panel="pageant">Pageant Info</button>
+      <button data-panel="divisionsAdmin">Divisions</button>
+      <button data-panel="newsAdmin">News &amp; Events</button>
+      <button data-panel="contestants">Contestants</button>
+      <button data-panel="applications">Applications</button>
+      <button data-panel="settings">Website Settings</button>
+    </aside>
+
+    <main class="adminMain">
+
+      <!-- Overview -->
+      <div id="panel-overview" class="adminPanel active">
+        <div class="adminCard">
+          <h2>Welcome, Administrator &#128081;</h2>
+          <p>This is your website control centre. Edit public content, add news, manage contestant profiles and change website settings.</p>
+          <div class="grid">
+            <div class="card"><h3>Pageant</h3><p>Miss Dawn Legacy Africa</p></div>
+            <div class="card"><h3>Divisions</h3><p>3 official divisions</p></div>
+            <div class="card"><h3>News</h3><p id="newsCount">0 news items</p></div>
+          </div>
+        </div>
+      </div>
+
+      <!-- Pageant Info -->
+      <div id="panel-pageant" class="adminPanel">
+        <div class="adminCard">
+          <h2>Pageant Information</h2>
+          <div id="savePageantNotice"></div>
+          <div class="formGrid">
+            <div class="full"><label>About The Pageant<textarea id="editAbout"></textarea></label></div>
+            <div><label>Vision<textarea id="editVision"></textarea></label></div>
+            <div><label>Mission<textarea id="editMission"></textarea></label></div>
+          </div>
+          <button class="btn pink" onclick="savePageant()">SAVE PAGEANT INFORMATION</button>
+        </div>
+      </div>
+
+      <!-- Divisions -->
+      <div id="panel-divisionsAdmin" class="adminPanel">
+        <div class="adminCard">
+          <h2>Divisions</h2>
+          <div class="formGrid">
+            <div><label>Little Miss Theme<input id="littleThemeEdit"></label></div>
+            <div><label>Teen Theme<input id="teenThemeEdit"></label></div>
+            <div><label>Miss Theme<input id="missThemeEdit"></label></div>
+            <div class="full"><label>Little Miss Description<textarea id="littleDescEdit"></textarea></label></div>
+            <div class="full"><label>Teen Description<textarea id="teenDescEdit"></textarea></label></div>
+            <div class="full"><label>Miss Description<textarea id="missDescEdit"></textarea></label></div>
+          </div>
+          <button class="btn pink" onclick="saveDivisions()">SAVE DIVISIONS</button>
+        </div>
+      </div>
+
+      <!-- News & Events -->
+      <div id="panel-newsAdmin" class="adminPanel">
+        <div class="adminCard">
+          <h2>News &amp; Events</h2>
+          <div class="formGrid">
+            <div><label>Headline<input id="newsTitle"></label></div>
+            <div><label>Date<input id="newsDate" type="date"></label></div>
+            <div class="full"><label>Story<textarea id="newsBody"></textarea></label></div>
+          </div>
+          <button class="btn pink" onclick="addNews()">ADD NEWS STORY</button>
+        </div>
+        <div class="adminCard">
+          <table class="table">
+            <thead><tr><th>Date</th><th>Headline</th><th>Action</th></tr></thead>
+            <tbody id="newsTable"></tbody>
+          </table>
+        </div>
+      </div>
+
+      <!-- Contestants -->
+      <div id="panel-contestants" class="adminPanel">
+        <div class="adminCard">
+          <h2>Contestant Profiles</h2>
+          <div class="formGrid">
+            <div><label>Name<input id="cName"></label></div>
+            <div><label>Division<input id="cDivision" placeholder="e.g. Teen"></label></div>
+            <div class="full"><label>Bio<textarea id="cBio"></textarea></label></div>
+          </div>
+          <button class="btn pink" onclick="addContestant()">ADD CONTESTANT</button>
+        </div>
+        <div class="adminCard">
+          <table class="table">
+            <thead><tr><th>Name</th><th>Division</th><th>Action</th></tr></thead>
+            <tbody id="contestantTable"></tbody>
+          </table>
+        </div>
+      </div>
+
+      <!-- Applications -->
+      <div id="panel-applications" class="adminPanel">
+        <div class="adminCard">
+          <h2>Applications</h2>
+          <p>The public application form is set up for Netlify Forms. Once deployed on Netlify with form detection enabled, submissions can be viewed in your site&rsquo;s Forms area.</p>
+          <a href="https://docs.netlify.com/manage/forms/submissions/" target="_blank" class="btn dark">READ NETLIFY SUBMISSIONS GUIDE</a>
+        </div>
+      </div>
+
+      <!-- Settings -->
+      <div id="panel-settings" class="adminPanel">
+        <div class="adminCard">
+          <h2>Website Settings</h2>
+          <div class="formGrid">
+            <div><label>Website Title<input id="siteName"></label></div>
+            <div><label>Official Email<input id="officialEmail" type="email"></label></div>
+            <div><label>Phone<input id="officialPhone"></label></div>
+            <div><label>Social URL<input id="socialUrl"></label></div>
+            <div class="full"><label>Replace Homepage Cover Image<input id="heroFile" type="file" accept="image/*"></label></div>
+          </div>
+          <button class="btn pink" onclick="saveSettings()">SAVE SETTINGS</button>
+          <button class="btn dark" onclick="resetSite()" style="margin-left:10px">RESET LOCAL CONTENT</button>
+          <p style="font-size:12px;color:#667085;margin-top:12px">This admin stores edits in this browser via localStorage. For a production site with shared editing and secure login, connect to a server or CMS.</p>
+        </div>
+      </div>
+
+    </main>
+  </div>
+</div>
+
+<script src="js/main.js"></script>
+</body>
+</html>
