@@ -1,0 +1,15 @@
+# Netlify Configuration — Miss Dawn Legacy Africa
+# The website files live inside the subfolder below, so Netlify must publish
+# that folder (not the repository root, which only contains README.md).
+
+[build]
+  publish = "Miss_Dawn_Legacy_Africa_ADMIN_WEBSITE (1)"
+
+# Security headers applied to every page
+[[headers]]
+  for = "/*"
+  [headers.values]
+    X-Frame-Options = "DENY"
+    X-Content-Type-Options = "nosniff"
+    Referrer-Policy = "strict-origin-when-cross-origin"
+    Permissions-Policy = "geolocation=(), microphone=(), camera=()"
